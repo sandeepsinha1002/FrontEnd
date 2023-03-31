@@ -63,7 +63,7 @@ const Sidebar = () => {
                 <ul className='pt-2'>
                     {Menus.map((menu,index) => (
                         <>
-                        <li key={index} className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? 'mt-72' : 'mt-3'} `}>
+                        <li key={index} className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? 'mt-48' : 'mt-3'} `}>
                             <span className='text-2xl block float-left'>
                                 {menu.icon ? menu.icon : <RiHomeLine/>}
                             </span>
