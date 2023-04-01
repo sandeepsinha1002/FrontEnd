@@ -36,15 +36,14 @@ const Sidebar = () => {
             icon:<FiSettings/>
         },
         {
-            title:'Help',
-            spacing:true, 
+            title:'Help', 
             icon:<FiHelpCircle/>
         },
 
     ];
     return (
         <>
-            <div className={`bg-black h-screen pt-8 p-5 relative text-white ${open ? 'w-72' : 'w-20'} ${submenuOpen && 'h-screen'} relative`}>
+            <div className={`bg-black h-screen pt-8 p-5 relative text-white ${open ? 'w-72' : 'w-20'} ${submenuOpen && 'h-screen'} relative `}>
                 <BsArrowLeftShort className={`bg-white text-black text-3xl rounded-full absolute -right-3  top-9 border border-black cursor-pointer ${!open && 'rotate-180'} `} onClick={() => setOpen
                     (!open)} />
                 <div className="inline-flex">
