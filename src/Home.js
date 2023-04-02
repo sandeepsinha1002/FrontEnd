@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import Carousel from "./components/Carousel";
 import Notescard from "./components/Notescard";
 import Sidebar from "./components/Sidebar";
+import LoginHeader from './components/LoginHeader';
 const Home = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Home = () => {
     <Carousel/>
     <Notescard/>
     </div>
+    {/* <LoginHeader/> */}
     </div>
     </div>
   )

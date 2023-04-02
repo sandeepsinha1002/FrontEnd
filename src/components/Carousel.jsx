@@ -38,14 +38,14 @@ const Carousel = () => {
     <div className="main">
           <div style={{backgroundImage: `url(${slides[currentIndex].url})`}} className='bgImage'>
           </div>
-          <div className=' group-hover:block absolute top-[3%] -translate-x-0 -translate-y--[50%] left-[19rem] text-2xl rounded-full p-2 bg-black/20  text-white cursor-pointer'>
+          <div className=' group-hover:block absolute top-[3%] -translate-x-0 -translate-y--[50%] left-auto mx-5 text-2xl rounded-full p-2 bg-black/20  text-white cursor-pointer'>
             <BsChevronCompactLeft onClick={prevSlide} size={30}></BsChevronCompactLeft>
           </div>
-          <div className=' group-hover:block absolute top-[3%] -translate-x-0 -translate-y--[50%] right-[71rem] text-2xl rounded-full p-2 bg-black/20  text-white cursor-pointer'>
+          <div className=' group-hover:block absolute top-[3%] -translate-x-0 -translate-y--[50%] right-auto text-2xl mx-20 rounded-full p-2 bg-black/20  text-white cursor-pointer'>
             <BsChevronCompactRight onClick={nextSlide} size={30}></BsChevronCompactRight>
           </div>
           <div className='-my-40 text-white mx-10'>
-            <span className='text-4xl font-nunito font-semibold'>Good Morning, Sandeep</span>
+            <span className='text-4xl font-nunito font-semibold text-white'>Good Morning, Sandeep</span>
             <DateTime></DateTime>
           </div>
           </div>

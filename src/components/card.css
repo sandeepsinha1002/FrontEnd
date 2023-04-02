@@ -1,86 +1,154 @@
-.section{
-    display: flex;
-    flex-direction:row;
-    grid-gap: 1rem;
-    /* grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); */
-    padding: 10px;
-    border-radius: 1.3rem;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.2em;
-    height: 22rem;
-    width: 285px;
+:root {
+  --orange: #fd9940;
+  --darkorange: #dd7d25;
+  --platinum: #e5e5e5;
+  --black: #2b2d42;
+  --white: #fff;
+  --thumb: #edf2f4;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 16px / 24px "Rubik", sans-serif;
+  color: var(--black);
+  background: var(--platinum);
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+  /* height: 440px; */
+
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fd9940;
+  margin-top: 20px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.cards {
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-column-gap: 10px;
+  grid-auto-flow: column;
+  padding: 17px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.card .card-title {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+.card .card-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--orange);
+  margin-top: 15px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.card:hover .card-link {
+  background: var(--darkorange);
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--darkorange);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+  .cards {
+    grid-auto-columns: calc(50% - 10px);
+    grid-column-gap: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .cards {
+    grid-auto-columns: calc(calc(100% / 3) - 20px);
+    grid-column-gap: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .cards {
+    grid-auto-columns: calc(25% - 30px);
+    grid-column-gap: 40px;
+  }
 }
 
 
-.card {
-    --border-radius: 0.75rem;
-    --primary-color: #3b5bab;
-    --secondary-color: #000000;
-    width: 185px;
-    font-family: "Nunito";
-    padding: 1rem;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-    background: white;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 280px;
-    margin-top: 50px;
-  }
-/*   
-  /* .card > * + * {
-    margin-top: 1.1em;
-  }
-  
-  .card .card__content {
-    color: var(--secondary-color);
-    font-size: 0.96rem;
-  } */
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 1;
+}
 
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
 
-  .card .card__title {
-    margin: auto;
-    font-size: 1.3rem;
-    font-weight: bold;
-    
-  }
-  
-  /* .card .card__date {
-    color: #6e6b80;
-    font-size: 0.8rem;
-  }
-  
-  .card .card__arrow {
-    position: absolute;
-    background: var(--primary-color);
-    padding: 0.4rem;
-    border-top-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    bottom: 0;
-    right: 0;
-    transition: 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card svg {
-    transition: 0.2s;
-  }
-   */
-  /* hover */
-  /* .card:hover .card__title {
-    color: var(--primary-color);
-    text-decoration: underline;
-  }
-  
-  .card:hover .card__arrow {
-    background: #111;
-  }
-  
-  .card:hover .card__arrow svg {
-    transform: translateX(3px);
-  }  */
+}

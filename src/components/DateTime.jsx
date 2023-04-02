@@ -16,7 +16,7 @@ export const DateTime = () => {
     return(
         <div>
 
-            <p className='text-2xl font-semibold font-nunito  p-1'>{date.toLocaleDateString()}</p>
+            <p className='text-2xl font-semibold font-nunito text-[#72C358] p-1'>{date.toLocaleDateString()}</p>
 
         </div>
     )

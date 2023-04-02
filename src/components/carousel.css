@@ -2,11 +2,13 @@
    height: 50%;
    margin: auto;
    width: 100%;
+ 
 
 }
 .bgImage
 {
-    width: 72%;
+  
+
     height: 100%;
     background-size: cover;
     background-position: center;
