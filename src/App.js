@@ -9,12 +9,15 @@ import Signup from "./components/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Title from "./Title";
+import Login from "./components/Login";
 function App() {
   return (
     <Router>
       <Routes>
       <Route exact path="/" Component={Home}></Route>
       <Route exact path="/title" Component={Title}></Route>
+      <Route exact path="/login" Component={Login}></Route>
+      <Route exact path="/register" Component={Signup}></Route>
       </Routes>
       </Router>
     // <Home/>

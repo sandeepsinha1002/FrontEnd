@@ -10,12 +10,13 @@ function Card (props){
           <div class="container" >
                 <h2>NOTES🗒️</h2>
                 <ul class="cards">
-                    <CardItem title="To Do List" desc="Planning a dribble porject on Wednesday" img=" https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"/>
+                    <CardItem title="To Do List" desc="Planning a dribble porject on Wednesday" />
                     <CardItem/>
                     <CardItem/>
                     <CardItem/>
                     <CardItem/>
                     <CardItem/>
+                   
                     </ul>
                     </div>
             )

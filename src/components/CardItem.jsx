@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const CardItem = (props) => {
   const navigate=useNavigate();
   return (
-    <li class="card">
+                  <li class="card">
                     <div>
                         <h3 class="card-title">{props.title}</h3>
                         <div class="card-content">{props.desc}</div>

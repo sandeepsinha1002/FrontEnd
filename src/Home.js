@@ -4,18 +4,19 @@ import Carousel from "./components/Carousel";
 import Notescard from "./components/Notescard";
 import Sidebar from "./components/Sidebar";
 import LoginHeader from './components/LoginHeader';
+import Signup from './components/Signup';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Footer from './components/Footer';
+import Feature from './components/Feature';
 const Home = () => {
   return (
-    <div>
-    <div className="flex" >
-    <Sidebar/>
-    <div className='flex-col'>
-    <Carousel/>
-    <Notescard/>
-    </div>
-    {/* <LoginHeader/> */}
-    </div>
-    </div>
+    <>
+    <Navbar/>
+    <Hero/>
+    <Feature/>
+    <Footer/>
+    </>
   )
 }
 

@@ -16,13 +16,13 @@
 body {
   font: 16px / 24px "Rubik", sans-serif;
   color: var(--black);
-  background: var(--platinum);
 }
 
 .container {
   max-width: 1400px;
   padding: 0 15px;
   margin: 0 auto;
+  background: var(--platinum);
   /* height: 440px; */
 
 }
@@ -40,7 +40,7 @@ h2 {
   grid-auto-columns: 100%;
   grid-column-gap: 10px;
   grid-auto-flow: column;
-  padding: 17px 0px;
+  padding: 17px 15px;
   list-style: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
