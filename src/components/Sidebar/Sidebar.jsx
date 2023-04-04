@@ -43,9 +43,8 @@ const Sidebar = () => {
     ];
     return (
         <>
-            <div className={`bg-black h-screen pt-8 p-5 relative text-white ${open ? 'w-72' : 'w-20'} ${submenuOpen && 'h-screen'} relative `}>
-                <BsArrowLeftShort className={`bg-white text-black text-3xl rounded-full absolute -right-3  top-9 border border-black cursor-pointer ${!open && 'rotate-180'} `} onClick={() => setOpen
-                    (!open)} />
+            <div className={`bg-black h-screen pt-8 p-5 relative text-white ${open ? '' : 'w-20'} ${submenuOpen && 'h-screen'} relative `}>
+                
                 <div className="inline-flex">
                     <TbNotes className={`mr-2 block text-4xl cursor-pointer float-left duration-500 ${open && 'rotate-[360deg]'}`} />
                     <h1 className={`text-white origin-left font-medium text-2xl duration-300 ${!open && 'scale-0'}`}>NoteAI.in</h1>
@@ -62,7 +61,7 @@ const Sidebar = () => {
                 <ul className='pt-2'>
                     {Menus.map((menu,index) => (
                         <>
-                        <li key={index} className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? 'mt-48' : 'mt-3'} `}>
+                        <li key={`id-${index}`} className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? 'mt-48' : 'mt-3'} `}>
                             <span className='text-2xl block float-left'>
                                 {menu.icon ? menu.icon : <RiHomeLine/>}
                             </span>
@@ -73,8 +72,8 @@ const Sidebar = () => {
                         </li>
                         {menu.submenu && submenuOpen && open && (
                             <ul>
-                                {menu.submenuItems.map((submenuItem,index)=>(
-                                    <li key={index} className="text-gray-300 rounded-md text-sm hover:bg-light-white flex items-center gap-x-4 cursor-pointer p-2 px-5">
+                                {menu.submenuItems.map((submenuItem,i)=>(
+                                    <li key={i} className="text-gray-300 rounded-md text-sm hover:bg-light-white flex items-center gap-x-4 cursor-pointer p-2 px-5">
                                         {submenuItem.title}
 
                                     </li>

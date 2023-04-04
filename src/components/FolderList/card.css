@@ -55,6 +55,7 @@ h2 {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
   scroll-snap-align: start;
   transition: all 0.2s;
+  height: 300px;
 }
 
 .card:hover {
@@ -115,8 +116,11 @@ h2 {
 
 @media (min-width: 500px) {
   .cards {
-    grid-auto-columns: calc(50% - 10px);
-    grid-column-gap: 20px;
+    grid-auto-columns: calc(40% - 10px);
+    grid-column-gap: 10px;
+  }
+  .container{
+    max-width: 500px;
   }
 }
 
@@ -125,12 +129,18 @@ h2 {
     grid-auto-columns: calc(calc(100% / 3) - 20px);
     grid-column-gap: 30px;
   }
+  .container{
+    max-width: 700px;
+  }
 }
 
 @media (min-width: 1100px) {
   .cards {
     grid-auto-columns: calc(25% - 30px);
     grid-column-gap: 40px;
+  }
+  .container{
+    max-width: 1200px;
   }
 }
 

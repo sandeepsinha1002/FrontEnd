@@ -5,13 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        'light-white':'rgba(255,255,255,0.18)'
-      },
+      colors:{},
       fontFamily:{
         nunito:['Nunito', 'sans-serif']
       }
-
     },
   },
   plugins: [],

@@ -1,21 +1,24 @@
 import React from 'react'
-import Card from "./components/Card";
-import Carousel from "./components/Carousel";
-import Notescard from "./components/Notescard";
-import Sidebar from "./components/Sidebar";
-import LoginHeader from './components/LoginHeader';
-import Signup from './components/Signup';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Footer from './components/Footer';
-import Feature from './components/Feature';
+import Carousel from "./components/Carousel/Carousel";
+import Notescard from "./components/FolderList/Notescard";
+import Sidebar from "./components/Sidebar/Sidebar";
+import AddFolder from './components/AddFolder/AddFolder';
+
+
+
 const Home = () => {
   return (
     <>
-    <Navbar/>
-    <Hero/>
-    <Feature/>
-    <Footer/>
+      <div className='flex'>
+        <div className='w-[16%]'>
+          <Sidebar />
+        </div>
+        <div className='w-[80%]'>
+          <Carousel />
+          <Notescard />
+        </div>
+      </div>
+      <AddFolder />
     </>
   )
 }

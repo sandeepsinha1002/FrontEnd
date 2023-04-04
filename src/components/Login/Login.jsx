@@ -1,6 +1,6 @@
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc';
-import bg from '../assets/images/login-bg.png';
+
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
     const navigate=useNavigate();

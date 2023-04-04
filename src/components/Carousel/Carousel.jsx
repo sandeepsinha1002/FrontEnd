@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { RxDotFilled } from 'react-icons/rx';
-import DateTime from './DateTime';
+import DateTime from '../DateTime/DateTime';
 import { BsChevronCompactLeft , BsChevronCompactRight}from 'react-icons/bs'
 import './carousel.css'
 const Carousel = () => {

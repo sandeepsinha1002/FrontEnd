@@ -1,28 +1,30 @@
 import React from 'react'
-import './card.css';
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { BsArrowBarLeft } from 'react-icons/bs';
-import CardItem from './CardItem';
+import './card.css';
+import Folder from './Folder';
 
-function Card (props){
-    const navigate=useNavigate();
-          return (
-          <div class="container" >
-                <h2>NOTES🗒️</h2>
-                <ul class="cards">
-                    <CardItem title="To Do List" desc="Planning a dribble porject on Wednesday" />
-                    <CardItem/>
-                    <CardItem/>
-                    <CardItem/>
-                    <CardItem/>
-                    <CardItem/>
-                   
-                    </ul>
-                    </div>
-            )
+
+const Folders =()=>{
+    const folderList = useSelector(state=>state.folderDetails);
+    return (
+        <div class="px-[30px] py-[20px] relative">
+            <h2 className='mb-5'>NOTES🗒️</h2>
+            <div class="flex max-w-[45%] overflow-x-auto">
+                {folderList?.folders?.length > 0 && folderList.folders.map((note,index) => (
+                   <Folder 
+                        key={index}
+                        note={note} 
+                        index={index}
+                    /> 
+                ))
+                }
+            </div>
+        </div>
+    )
 }
 
-export default Card;
+export default Folders;
 
 
 // <div className='section'>

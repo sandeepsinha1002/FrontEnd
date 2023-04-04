@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { FcGoogle } from 'react-icons/fc';
-import bg from '../assets/images/bg.jpeg';
+
 import { useNavigate } from 'react-router-dom';
 const Signup = () => {
     const navigate=useNavigate();

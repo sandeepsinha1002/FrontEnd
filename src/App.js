@@ -1,26 +1,24 @@
 import React from "react";
-import { useState } from "react";
-import { BsArrowLeft } from "react-icons/bs";
-import Card from "./components/Card";
-import Carousel from "./components/Carousel";
-import Notescard from "./components/Notescard";
-import Sidebar from "./components/Sidebar";
-import Signup from "./components/Signup";
+import { Provider } from "react-redux";
+import Signup from "./components/SignUp/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
-import Title from "./Title";
-import Login from "./components/Login";
+import NotesList from "../src/components/Notes/NoteList";
+import Login from "./components/Login/Login";
+import store from '../src/store/index'
+
 function App() {
   return (
-    <Router>
-      <Routes>
-      <Route exact path="/" Component={Home}></Route>
-      <Route exact path="/title" Component={Title}></Route>
-      <Route exact path="/login" Component={Login}></Route>
-      <Route exact path="/register" Component={Signup}></Route>
-      </Routes>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route exact path="/" Component={Home}></Route>
+          <Route exact path="/folders/:name" Component={NotesList}></Route>
+          <Route exact path="/login" Component={Login}></Route>
+          <Route exact path="/register" Component={Signup}></Route>
+        </Routes>
       </Router>
-    // <Home/>
+    </Provider>
   );
 }
 
