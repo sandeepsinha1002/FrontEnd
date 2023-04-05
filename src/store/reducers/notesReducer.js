@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 const initialState = {
     folders: []
 }
@@ -19,21 +21,24 @@ const notesReducer = (state = initialState, action) => {
 
             let folders = [...state?.folders]; // copy
             let index;
-            let selectedFolder = folders.length > 0
+            let olderNotes = [];
+
+            let newFolderList = folders.length > 0
+                && state?.folders?.filter((item) => item?.name !== name);
+
+            const selectedFolder = folders.length > 0
                 && state?.folders?.filter((item, i) => {
                     if (item.name === name) {
                         index = i;
+                        olderNotes = item?.notes || [];
                         return item;
                     }
                 });
-
-            folders = folders.splice(index, 1); // remove old folder
-            debugger;
             const notes = selectedFolder[0]?.notes?.length > 0 ? selectedFolder[0]?.notes : [];
             return {
                 ...state,
                 folders: [
-                    ...folders,
+                    ...newFolderList,
                     {
                         ...selectedFolder[0],
                         notes: [
@@ -43,8 +48,34 @@ const notesReducer = (state = initialState, action) => {
                     }
                 ]
             }
-        case 'updateNotes':
-            return state
+        case 'updateNote':
+
+            let list = [...state?.folders];
+
+            let newList = list?.length > 0
+                && list?.filter((item) => item?.name !== action.payload.name);
+
+            const selectedObj = list.length > 0
+                && list?.filter((item, i) => (item.name === action.payload.name))[0];
+
+            const olderNotefiles=list?.length>0 && list?.filter((item)=>item?.index!==action.payload.index);
+            
+            const noteToBeUpdated=list?.length>0 && list?.filter((item)=>item.index===action.payload.index);
+            debugger;
+            return {
+                folders: [
+                    ...newList,
+                    
+                    {...selectedObj ,
+                        notes:[
+                        ...selectedObj?.notes,{
+                            index:action.payload.index,
+                            content : action.payload.content
+                    }
+                ]
+            }
+        ]
+            }
         case 'deleteNotes':
             return state
         default:
