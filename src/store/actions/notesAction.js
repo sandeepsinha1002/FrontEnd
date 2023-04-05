@@ -6,8 +6,8 @@ export const createNote = (payload) => ({
   type: 'createNote',
   payload: payload,
 })
-export const updateNotes = (payload) => ({
-  type: 'updateNotes',
+export const updateNote = (payload) => ({
+  type: 'updateNote',
   payload: payload,
 })
 export const deleteNotes = (payload) => ({

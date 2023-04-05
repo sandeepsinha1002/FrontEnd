@@ -8,7 +8,7 @@ const loginReducer=(state=initialState,action)=>{
             return state
         case 'createNotes':
             return state
-        case 'updateNotes':
+        case 'updateNote':
             return state
         case 'deleteNotes':
             return state

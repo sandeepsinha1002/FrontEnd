@@ -10,7 +10,7 @@ const Folders =()=>{
     return (
         <div class="px-[30px] py-[20px] relative">
             <h2 className='mb-5'>NOTES🗒️</h2>
-            <div class="flex max-w-[45%] overflow-x-auto">
+            <div className="flex max-w-[45%] overflow-x-auto">
                 {folderList?.folders?.length > 0 && folderList.folders.map((note,index) => (
                    <Folder 
                         key={index}

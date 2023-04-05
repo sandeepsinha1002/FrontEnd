@@ -6,6 +6,7 @@ import Home from "./Home";
 import NotesList from "../src/components/Notes/NoteList";
 import Login from "./components/Login/Login";
 import store from '../src/store/index'
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/folders/:name" Component={NotesList}></Route>
           <Route exact path="/login" Component={Login}></Route>
           <Route exact path="/register" Component={Signup}></Route>
+          <Route exact path="/dashboard" Component={Dashboard}></Route>
         </Routes>
       </Router>
     </Provider>

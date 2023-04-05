@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import countries from "../data";
+import countries from "../../data";
 
 import Menubar from './Menubar';
 
@@ -92,7 +92,7 @@ const Translate = () => {
             <div className="container1">
                 <Menubar />
                 <div className="wrapper">
-                    <div className="text-input">
+                    <div className="text-input w-[100%]">
                         <textarea
                             spellcheck="false"
                             className="from-text"

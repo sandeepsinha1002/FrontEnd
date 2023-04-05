@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BsFilePlusFill } from "react-icons/bs";
+import '../../index2.css'
 
-const AddNote = ({noteText, setNoteText, handleAddNote }) => {
-   
+const AddNote = ({ noteText, setNoteText, handleAddNote }) => {
+
     const charLimit = 200;
     const [options, setOptions] = useState([]);
     const [to, setTo] = useState('en');
@@ -26,7 +27,8 @@ const AddNote = ({noteText, setNoteText, handleAddNote }) => {
             <textarea rows='8' cols='10'
                 placeholder="Type a note ..."
                 onChange={handleChange}
-                value={noteText}>
+                value={noteText}
+            >
             </textarea>
             <div className="note-footer">
                 <strong>{charLimit - noteText.length} Remaining</strong>

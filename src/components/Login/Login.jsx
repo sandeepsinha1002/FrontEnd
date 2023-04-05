@@ -23,7 +23,7 @@ const Login = () => {
                 <label>Password</label>
                 <input className='border relative p-2 bg-gray-100' type="password" />
             </div>
-            <button className='w-full py-3 mt-5 bg-indigo-600 hover:bg-indigo-500  relative text-white'>Login</button>
+            <button className='w-full py-3 mt-5 bg-indigo-600 hover:bg-indigo-500  relative text-white' onClick={()=>navigate('/dashboard')}>Login</button>
             <p className='relative top-3 left-1/4'>New Member?<button className='w-full right-8 bottom-6 relative text-indigo-600' onClick={()=>navigate('/register')}>Sign Up</button></p>
             
         </form>
