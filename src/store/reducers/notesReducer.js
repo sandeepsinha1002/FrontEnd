@@ -1,49 +1,65 @@
-import { act } from "react-dom/test-utils";
 
 const initialState = {
     folders: []
 }
 
+const getOtherFolders = (list, folderName) => {
+    const restofTheFolder = list?.length > 0
+        && list?.filter((item) => item?.folderName !== folderName);
+    return restofTheFolder || [];
+}
+const getSelectedFolder = (list, folderName) => {
+    const folder = list.length > 0
+        && list?.filter((item, i) => (item.folderName === folderName))[0];
+    return folder || {};
+}
+
 const notesReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case 'storeApiResp':
+            return {
+                folders: action.payload // send payload : response.notes
+            }
+
         case 'createFolder':
             return {
                 ...state,
                 folders: [
                     ...state.folders,
                     {
-                        name: action.payload.name
+                        folderName: action.payload.folderName
                     }
                 ]
             }
         case 'createNote':
-            const { title, content, isFavourite, name } = action.payload;
+            const { title, content, favourites, folderName } = action.payload;
 
             let folders = [...state?.folders]; // copy
             let index;
             let olderNotes = [];
 
             let newFolderList = folders.length > 0
-                && state?.folders?.filter((item) => item?.name !== name);
+                && state?.folders?.filter((item) => item?.folderName !== folderName);
 
             const selectedFolder = folders.length > 0
                 && state?.folders?.filter((item, i) => {
-                    if (item.name === name) {
+                    if (item.folderName === folderName) {
                         index = i;
-                        olderNotes = item?.notes || [];
+                        olderNotes = item?.files || [];
                         return item;
                     }
                 });
-            const notes = selectedFolder[0]?.notes?.length > 0 ? selectedFolder[0]?.notes : [];
+            const files = selectedFolder[0]?.files?.length > 0 ? selectedFolder[0]?.files : [];
             return {
                 ...state,
                 folders: [
                     ...newFolderList,
                     {
                         ...selectedFolder[0],
-                        notes: [
-                            ...notes,
-                            { title, content, isFavourite }
+                        files: [
+                            ...files,
+                            { title, content, favourites }
                         ]
                     }
                 ]
@@ -52,32 +68,47 @@ const notesReducer = (state = initialState, action) => {
 
             let list = [...state?.folders];
 
-            let newList = list?.length > 0
-                && list?.filter((item) => item?.name !== action.payload.name);
+            let restofTheFolder = getOtherFolders(list, action.payload.folderName);
 
-            const selectedObj = list.length > 0
-                && list?.filter((item, i) => (item.name === action.payload.name))[0];
+            const folderselected = getSelectedFolder(list, action.payload.folderName);
 
-            const olderNotefiles=list?.length>0 && list?.filter((item)=>item?.index!==action.payload.index);
+            const olderfiles = folderselected?.files?.length > 0 && folderselected?.files?.filter((item) => item?._id !== action.payload.id);
+
+            const noteToBeUpdated = folderselected?.files?.length > 0 ? folderselected?.files?.filter((item) => item._id === action.payload.id)[0] : {};
             
-            const noteToBeUpdated=list?.length>0 && list?.filter((item)=>item.index===action.payload.index);
-            debugger;
             return {
                 folders: [
-                    ...newList,
-                    
-                    {...selectedObj ,
-                        notes:[
-                        ...selectedObj?.notes,{
-                            index:action.payload.index,
-                            content : action.payload.content
+                    ...restofTheFolder,
+
+                    {
+                        ...folderselected,
+                        files: [
+                            ...olderfiles,
+                            {
+                                ...noteToBeUpdated,
+                                content: action.payload.content
+                            }
+                        ]
                     }
                 ]
             }
-        ]
-            }
         case 'deleteNotes':
-            return state
+            let otherFolders = getOtherFolders(state?.folders, action.payload.folderName);
+
+            const selectedFold = getSelectedFolder(state?.folders, action.payload.folderName);
+            const filesTobeKept = selectedFold?.files?.length > 0 && selectedFold?.files?.filter((item) => item?._id !== action.payload.id);
+            return {
+                folders: [
+                    ...otherFolders,
+
+                    {
+                        ...selectedFold,
+                        files: [
+                            ...filesTobeKept
+                        ]
+                    }
+                ]
+            }
         default:
             return state
     }

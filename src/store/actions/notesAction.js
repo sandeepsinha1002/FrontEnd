@@ -14,3 +14,8 @@ export const deleteNotes = (payload) => ({
   type: 'deleteNotes',
   payload: payload,
 })
+
+export const storeApiResp = (payload) => ({
+  type: 'storeApiResp',
+  payload: payload,
+})

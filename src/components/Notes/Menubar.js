@@ -13,17 +13,11 @@ function Menubar() {
     const handleClick = () => setClick(!click);
 
     return (
-        <div>
-            <div className={click ? "box-menu active " : "box-menu"}>
-                {/* <div class="wrapper1">
-                                                            <div class="hamburger1" onClick={handleClick}>
-                                                                      {click ? (<FaTimes size="20" style={{color:'#222'}}/>):
-                                                                                (<FaBars size={20} style={{color:"#222"}}/>)}                                                           
-                                                             </div>
-                                                  </div> */}
-                <ul className='m-3'>
-                    <li className>
-                        <FaCamera size="25" style={{ color: '#0A2647' }} />
+        <div >
+            <div className="box-menu">
+                <ul className='menu-item'>
+                    <li>
+                        <FaCamera size='25' style={{ color: '#0A2647' }} />
                     </li>
                     <li>
                         <FaAssistiveListeningSystems size="25" style={{ color: '#222' }} />

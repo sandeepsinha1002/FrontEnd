@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import countries from "../../data";
-
+import '../../App.css'
 import Menubar from './Menubar';
 
 const Translate = () => {
@@ -130,7 +130,7 @@ const Translate = () => {
                     </div>
 
                 </div>
-                <button>Translate Text</button>
+                <button style={{width:'100%'}}>Translate Text</button>
             </div>
         </div>
     );

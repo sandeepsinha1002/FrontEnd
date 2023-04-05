@@ -4,20 +4,26 @@ import { BsFillStarFill, BsStar } from 'react-icons/bs'
 import { AiFillEdit } from 'react-icons/ai'
 import Popup from './EditNotePopup';
 import '../../index2.css'
-
-const Note = ({ title = '', content = '', id, name }) => {
+import { deleteNotes } from '../../store/actions/notesAction';
+import { useDispatch } from 'react-redux';
+const Note = ({ title = '', content = '', id, folderName }) => {
     const [click, setClick] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [newContent, setContent] = useState(content || '');
-
+    const dispatch=useDispatch();
+    const handleDeleteNote = () => {
+        dispatch(deleteNotes({
+            id:id
+        }))
+    }
     const handleClick = () => setClick(!click);
-
+    debugger;
     return (
         <div className="note">
-            <textarea rows='4' cols='6' className='overflow-y-hidden text-xl bg-[#ededed]' readOnly>{content}</textarea>
+            <div rows='4' cols='6' className='overflow-y-hidden text-xl bg-[#ededed]' readOnly>{newContent}</div>
 
             <div className="note-footer">
-                {/* <strong>{date}</strong> */}
+                <strong>{title}</strong>
                 <div className='star' onClick={handleClick}>
                     {click ? (<BsFillStarFill size="25" style={{ color: '#F7C04A' }} />) :
                         (<BsStar size={25} style={{ color: "#000" }} />)}
@@ -33,7 +39,7 @@ const Note = ({ title = '', content = '', id, name }) => {
                 <MdDeleteForever
                     className='delete-icon'
                     size='1.9em' style={{ color: '#539165' }}
-                    // onClick={() => handleDeleteNote(id)}
+                    onClick={() => handleDeleteNote()}
                 />
 
                 {isOpen && (<Popup
@@ -41,7 +47,8 @@ const Note = ({ title = '', content = '', id, name }) => {
                     isOpen={isOpen}
                     content={newContent}
                     setContent={setContent}
-                    name={name}
+                    name={folderName}
+                    id={id}
                 />)}
             </div>
         </div>
@@ -49,6 +56,4 @@ const Note = ({ title = '', content = '', id, name }) => {
 }
 
 export default Note;
-
-
 

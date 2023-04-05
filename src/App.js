@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" Component={Home}></Route>
-          <Route exact path="/folders/:name" Component={NotesList}></Route>
+          <Route exact path="/folders/:folderName" Component={NotesList}></Route>
           <Route exact path="/login" Component={Login}></Route>
           <Route exact path="/register" Component={Signup}></Route>
           <Route exact path="/dashboard" Component={Dashboard}></Route>

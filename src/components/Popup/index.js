@@ -31,7 +31,7 @@ const Popup = ({ isOpen = false, title = '', setIsOpen = null, setTitle = null }
                     onClick={() => {
                         if(title){
                         dispatch(createFolder({
-                            name: title
+                            folderName: title
                         }));
                         setIsOpen(false);
                     }

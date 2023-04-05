@@ -1,17 +1,12 @@
 const initialState = {
-    folders:[]
+    loggedIn: true
 }
 
-const loginReducer=(state=initialState,action)=>{
-    switch (action.type){
-        case 'createFolder':
-            return state
-        case 'createNotes':
-            return state
-        case 'updateNote':
-            return state
-        case 'deleteNotes':
-            return state
+const loginReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'updateLoginstatus':
+            return { loggedIn: action?.payload?.loggedIn }
+
         default:
             return state
     }

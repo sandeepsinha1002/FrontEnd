@@ -5,32 +5,19 @@
 	left: 1440px;
 	top: 50px;
 	cursor: pointer;
-	background: #ededed;
+	background: #fff;
 	width: 50px;
-	height: 40px;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+	height: 250px;
+	margin-top: 150px;
 	border-radius: 60px;
-	transition:height .4s;
+	/* box-shadow: 5px 5px 5px rgba(0, 0, 0, .3); */
 }
-.full-menu{height: 400px;}
-.wrapper1{
-	position: relative;
-	width: 60px;
-	height: 60px;
-}
-
-.hamburger1{
-          margin-left: 0.9rem;
-          padding-top: 0.5rem;
-}
-
-.box-menu.active{
-          height: 280px;
-}
-
 .menu-item {
-	margin-left: 2px;
+	margin-left: 0px;
 	background: #ededed;
+	border-radius: 60px;
+	position: relative;
+	left: 120px;
 }
 
 .menu-item li{

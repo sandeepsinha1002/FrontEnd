@@ -6,13 +6,13 @@ const Folder = ({ note, index }) => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col p-5 w-[90%] h-[90%]" onClick={() => navigate({
-          pathname: `/folders/${note.name}`
+          pathname: `/folders/${note.folderName}`
         })}>
       
     <img
       src={folder}
       />
-      <div className="text-2xl text-center">{note?.name}</div>
+      <div className="text-2xl text-center">{note?.folderName}</div>
     </div>
     // <button
     //   type='button'

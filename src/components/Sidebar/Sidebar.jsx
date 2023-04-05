@@ -43,7 +43,7 @@ const Sidebar = () => {
     ];
     return (
         <>
-            <div className={`bg-black h-screen pt-8 p-5 relative text-white ${open ? '' : 'w-20'} ${submenuOpen && 'h-screen'} relative `}>
+            <div className={`bg-black h-[100vh] pt-8 p-5 relative text-white ${open ? '' : 'w-20'} ${submenuOpen && 'h-screen'} relative `}>
                 
                 <div className="inline-flex">
                     <TbNotes className={`mr-2 block text-4xl cursor-pointer float-left duration-500 ${open && 'rotate-[360deg]'}`} />

@@ -1,0 +1,38 @@
+{"notes": [
+    {
+      "folderName": "List1",
+      "files": [
+        {
+          "name": "xyz",
+          "content": "xyz",
+          "favourites": false,
+          "_id": "642ae12f10affb61a4ec3dce"
+        },
+        {
+          "name": "la",
+          "content": "ccccc",
+          "favourites": false,
+          "_id": "642aeef194d988896298c109"
+        },
+        {
+          "name": "yoo",
+          "content": "chyai",
+          "favourites": false,
+          "_id": "642b0e34d70a7cae729eff08"
+        }
+      ],
+      "_id": "642ae12f10affb61a4ec3dcd"
+    },
+    {
+      "folderName": "Mars",
+      "files": [
+        {
+          "name": "",
+          "content": "",
+          "favourites": false,
+          "_id": "642b0f5dabb41938077021b0"
+        }
+      ],
+      "_id": "642b0f5dabb41938077021af"
+    }
+  ]}

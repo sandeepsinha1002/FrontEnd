@@ -1,22 +1,43 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import './card.css';
 import Folder from './Folder';
+import { storeApiResp } from '../../store/actions/notesAction';
 
 
-const Folders =()=>{
-    const folderList = useSelector(state=>state.folderDetails);
+const Folders = () => {
+    const dispatch = useDispatch();
+    const folderList = useSelector(state => state.folderDetails);
+
+    useEffect(() => {
+        const getNotes = async () => {
+            // replace this url by actual URL
+            fetch('./data.json').then(
+                function (res) {
+                    return res.json();
+                },
+            ).then((data) => {
+                // store Data in State Data Variable
+                dispatch(storeApiResp(data?.notes));
+            }).catch((err) => {
+                console.log(err, ' error');
+
+            });
+        };
+        getNotes();
+    }, []);
+
     return (
         <div class="px-[30px] py-[20px] relative">
             <h2 className='mb-5'>NOTES🗒️</h2>
-            <div className="flex max-w-[45%] overflow-x-auto">
-                {folderList?.folders?.length > 0 && folderList.folders.map((note,index) => (
-                   <Folder 
+            <div className="flex max-w-[50%] overflow-x-auto">
+                {folderList?.folders?.length > 0 && folderList.folders.map((note, index) => (
+                    <Folder
                         key={index}
-                        note={note} 
+                        note={note}
                         index={index}
-                    /> 
+                    />
                 ))
                 }
             </div>
@@ -25,6 +46,7 @@ const Folders =()=>{
 }
 
 export default Folders;
+
 
 
 // <div className='section'>

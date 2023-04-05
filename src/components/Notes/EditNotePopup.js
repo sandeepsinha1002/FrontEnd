@@ -1,10 +1,9 @@
 import { useDispatch } from 'react-redux'
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { updateNote } from '../../store/actions/notesAction';
 
-import { updateNote } from '../../store/actions/notesAction'
 
-
-const Popup = ({ isOpen = false, content = '', setIsOpen = null, setContent = null, name,index }) => {
+const Popup = ({ id, content = '', setIsOpen = null, setContent = null, name }) => {
     const dispatch = useDispatch();
 
     return (
@@ -33,8 +32,8 @@ const Popup = ({ isOpen = false, content = '', setIsOpen = null, setContent = nu
                         if (content) {
                             dispatch(updateNote({
                                 content: content,
-                                name: name,
-                                index:index
+                                folderName: name,
+                                id: id
                             }));
                             setIsOpen(false);
                         }
