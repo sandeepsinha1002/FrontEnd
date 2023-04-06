@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import countries from "../../data";
 import '../../App.css'
 import './menu.css'
@@ -9,6 +9,44 @@ import { FcNeutralDecision } from "react-icons/fc";
 // import Menubar from './Menubar';
 
 const Translate = () => {
+    const[input,setInput]=useState('');
+    const[output,setOutput]=useState('');
+
+    const sendInput=async(e)=>{
+        e.preventDefault();
+
+        const res = await fetch('http://localhost:8888/auth/login',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                input
+            })
+        }).then((res) => {return res.json()});
+            const result = async () => {
+                const data = await res;
+                console.log(data);
+    
+                if(data.status === 422 || !data)
+                {
+                    window.alert('Something went wrong');
+                }
+                else{
+                    setOutput(data)
+                }
+    }
+}
+
+
+
+
+
+
+
+
+
+
     useEffect(() => {
         const fromText = document.querySelector(".from-text");
         const toText = document.querySelector(".to-text");
@@ -118,12 +156,15 @@ const Translate = () => {
                     </div>
 
                 </div >
-                <div className="wrapper">
+                <form action="POST">
                     <div className="text-input w-[100%]">
                         <textarea
                             spellcheck="false"
                             className="from-text"
+                            style={{background:"#F8F5E4"}}
                             placeholder="Type your Note"
+                            value={input}
+                            onChange={(e)=>setInput(e.target.value)}
                         >
                         </textarea>
                     </div>
@@ -153,10 +194,10 @@ const Translate = () => {
                             disabled
                             className="to-text"
                             placeholder="Check For Output"
-                        ></textarea>
+                        >{output.text}</textarea>
                     </div>
 
-                </div>
+                </form>
                 <button style={{ width: '100%' }}>Translate Text</button>
             </div>
         </div>
