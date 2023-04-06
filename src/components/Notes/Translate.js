@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import countries from "../../data";
 import '../../App.css'
-import Menubar from './Menubar';
+import './menu.css'
+import { FaBars, FaTimes, FaCamera, FaAssistiveListeningSystems, FaStopCircle } from 'react-icons/fa';
+import { SiGrammarly } from "react-icons/si";
+import { FcNeutralDecision } from "react-icons/fc";
+
+// import Menubar from './Menubar';
 
 const Translate = () => {
     useEffect(() => {
@@ -90,7 +95,29 @@ const Translate = () => {
     return (
         <div >
             <div className="container1">
-                <Menubar />
+                <div >
+                    <div className="box-menu">
+                        <ul className='menu-item'>
+                            <li>
+                                <FaCamera size='25' style={{ color: '#0A2647' }} />
+                            </li>
+                            <li>
+                                <FaAssistiveListeningSystems size="25" style={{ color: '#222' }} />
+                            </li>
+                            <li>
+                                <FaStopCircle size="25" style={{ color: 'red' }} />
+                            </li>
+                            <li>
+                                <SiGrammarly size="25" style={{ color: '#ABC270' }} />
+                            </li>
+                            <li>
+                                <FcNeutralDecision size="27" style={{ color: '#ABC270' }} />
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div >
                 <div className="wrapper">
                     <div className="text-input w-[100%]">
                         <textarea
@@ -130,7 +157,7 @@ const Translate = () => {
                     </div>
 
                 </div>
-                <button style={{width:'100%'}}>Translate Text</button>
+                <button style={{ width: '100%' }}>Translate Text</button>
             </div>
         </div>
     );
